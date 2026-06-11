@@ -62,6 +62,8 @@ const deleteGameFolder = async (
       ...game,
       installerSizeInBytes: null,
       executablePath: null,
+      installedSizeInBytes: null,
+      automaticCloudSync: false,
     });
   }
 };
