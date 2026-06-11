@@ -31,7 +31,7 @@ export function useWindowsDefenderExclusion({
       showSuccessToast(
         t(
           "windows_defender_exclusion_success",
-          "Exclusion Windows Defender ajoutée avec succès !"
+          "Windows Defender exclusion added successfully!"
         )
       );
     } catch (err: unknown) {
@@ -39,7 +39,7 @@ export function useWindowsDefenderExclusion({
         getErrorMessage(err) ||
           t(
             "windows_defender_exclusion_error",
-            "Erreur lors de l'ajout de l'exclusion Windows Defender."
+            "Error while adding Windows Defender exclusion."
           )
       );
     }
@@ -52,7 +52,7 @@ export function useWindowsDefenderExclusion({
       showSuccessToast(
         t(
           "windows_defender_exclusion_removed_success",
-          "Exclusion Windows Defender retirée avec succès !"
+          "Windows Defender exclusion removed successfully!"
         )
       );
     } catch (err: unknown) {
@@ -60,7 +60,7 @@ export function useWindowsDefenderExclusion({
         getErrorMessage(err) ||
           t(
             "windows_defender_exclusion_removed_error",
-            "Erreur lors du retrait de l'exclusion Windows Defender."
+            "Error while removing Windows Defender exclusion."
           )
       );
     }
@@ -83,7 +83,7 @@ export function useWindowsDefenderExclusion({
         showSuccessToast(
           t(
             "windows_defender_exclusion_updated_success",
-            "Le dossier d'exclusion Windows Defender a été mis à jour !"
+            "Windows Defender exclusion path updated!"
           )
         );
       } catch (err: unknown) {
@@ -91,7 +91,7 @@ export function useWindowsDefenderExclusion({
           getErrorMessage(err) ||
             t(
               "windows_defender_exclusion_updated_error",
-              "Erreur lors de la mise à jour de l'exclusion Windows Defender."
+              "Error while updating Windows Defender exclusion."
             )
         );
       }
@@ -107,11 +107,11 @@ export function useWindowsDefenderExclusion({
     exclusionButtonLabel: hasExclusion
       ? t(
           "remove_windows_defender_exclusion",
-          "Retirer l'exclusion Windows Defender"
+          "Remove Windows Defender exclusion"
         )
       : t(
           "add_windows_defender_exclusion",
-          "Ajouter une exclusion Windows Defender"
+          "Add Windows Defender exclusion"
         ),
   };
 }

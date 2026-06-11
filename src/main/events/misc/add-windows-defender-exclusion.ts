@@ -18,13 +18,15 @@ const runDefenderCommand = (psCommand: string): Promise<boolean> => {
   });
 };
 
+const escapePowerShellPath = (path: string) => path.replace(/'/g, "''");
+
 const addWindowsDefenderExclusion = async (
   _event: Electron.IpcMainInvokeEvent,
   exclusionPath: string
 ) => {
   if (!exclusionPath?.trim()) throw new Error("Invalid path.");
   return runDefenderCommand(
-    `Add-MpPreference -ExclusionPath '${exclusionPath}'`
+    `Add-MpPreference -ExclusionPath '${escapePowerShellPath(exclusionPath)}'`
   );
 };
 
@@ -34,7 +36,7 @@ const removeWindowsDefenderExclusion = async (
 ) => {
   if (!exclusionPath?.trim()) throw new Error("Invalid path.");
   return runDefenderCommand(
-    `Remove-MpPreference -ExclusionPath '${exclusionPath}'`
+    `Remove-MpPreference -ExclusionPath '${escapePowerShellPath(exclusionPath)}'`
   );
 };
 
@@ -45,7 +47,7 @@ const updateWindowsDefenderExclusion = async (
 ) => {
   if (!oldPath?.trim() || !newPath?.trim()) throw new Error("Invalid paths.");
   return runDefenderCommand(
-    `Remove-MpPreference -ExclusionPath '${oldPath}'; Add-MpPreference -ExclusionPath '${newPath}'`
+    `Remove-MpPreference -ExclusionPath '${escapePowerShellPath(oldPath)}'; Add-MpPreference -ExclusionPath '${escapePowerShellPath(newPath)}'`
   );
 };
 

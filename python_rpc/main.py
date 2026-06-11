@@ -1,22 +1,22 @@
 import hmac
 import json
 import logging
+import os
 import re
 import sys
 import tempfile
 import threading
+import time
 import urllib.parse
 from typing import Any, Optional
-import sys
-import os
 
 if sys.platform == "win32":
     dll_dir = os.path.join(sys.base_prefix, "DLLs")
     if os.path.isdir(dll_dir):
         try:
             os.add_dll_directory(dll_dir)
-        except Exception:
-            pass
+        except Exception as e:
+            print(f"Failed to add DLL directory {dll_dir}: {e}", file=sys.stderr)
 
 print(f"USING PYTHON: {sys.executable}", file=sys.stderr)
 
